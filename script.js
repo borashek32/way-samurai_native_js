@@ -66,3 +66,5 @@ console.log(student);
 // нет в исходном массиве. Просто нужно закомментировать 62-64 строчки
 const deepCopyStudent = {...student, friends: [...student.friends, "Lera"]};
 console.log(student);
+
+// иммутабельность - это изменения, которые были произведены над копией объекта

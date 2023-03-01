@@ -1,6 +1,6 @@
 {
   "jshintConfig": {
-    "camelcase" : true,
+    "camelcase": true,
     "indent": 2,
     "undef": true,
     "quotmark": false,
@@ -13,5 +13,16 @@
     "jquery": true,
     "esversion": 9,
     "node": true
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "@jest/globals": "^29.3.1",
+    "picomatch": "^2.3.1",
+    "uuid": "^9.0.0"
   }
 }

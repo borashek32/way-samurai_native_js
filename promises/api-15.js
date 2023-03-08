@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const api = {
     sendStudentsCountToItKamasutra(studentsCount) {
         return axios.post("https://it-kamasutra.com/students-need",

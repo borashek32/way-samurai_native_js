@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises</title>
+</head>
+<body>
+
+<!--  <script>-->
+<!--    const myPromise = new Promise((resolve) => {-->
+<!--      setTimeout(() => {-->
+<!--        alert("promise")-->
+<!--        resolve()-->
+<!--      }, 2000)-->
+<!--    })-->
+<!--    myPromise.then(() => console.log("12345"));-->
+<!--  </script>-->
+
+<!--  <script>-->
+<!--    const myPromise = new Promise((resolve) => {-->
+<!--      setTimeout(() => {-->
+<!--        let num = Math.random()-->
+<!--        resolve(num)-->
+<!--      }, 3000)-->
+<!--    })-->
+<!--    myPromise.then((num) => console.log("1 ", num));-->
+<!--    myPromise.then((num) => console.log("2 ", num));-->
+<!--    console.log("finish")-->
+<!--  </script>-->
+
+<!--  <script>-->
+<!--    const doAfter = (sec) => new Promise((resolve) => {-->
+<!--        setTimeout(() => resolve(sec), sec * 1000)-->
+<!--      })-->
+
+<!--    // doAfter(1).then((sec) => console.log(`я сработал через ${sec} секунд`));-->
+
+<!--    // doAfter(5).then(() => console.log('я сработал через 5 секунд'));-->
+<!--    // doAfter(3).then(() => console.log('а я сработал через 3 секунд'));-->
+<!--    // doAfter(10).then(() => console.log('я сработал через 10 секунд'));-->
+
+<!--    let promise3 = doAfter(3)-->
+<!--    setTimeout(() => {-->
+<!--      promise3.then(() => console.log('я сработал через 3 секунд'))-->
+<!--    }, 3000)-->
+
+<!--    // let callback1 = () => console.log('Мой промис зарезолвился')-->
+<!--    // let callback2 = () => console.log('Мой промис тоже зарезолвился следом')-->
+
+<!--    doAfter(3)-->
+<!--      .then(() => {-->
+<!--        console.log('Мой промис зарезолвился')-->
+<!--        return 123-->
+<!--      })-->
+<!--      .then((a) => {-->
+<!--        console.log('Мой промис тоже зарезолвился следом', a)-->
+<!--      })-->
+<!--  </script>-->
+
+<!--<script>-->
+<!--  let pr = new Promise( (resolve) => {-->
+<!--    let data = {-->
+<!--      cities: [{title: "Minsk"}, {title: "Kiev"}],-->
+<!--      website: "it-kamasutra.com"-->
+<!--    };-->
+<!--    resolve(data);-->
+<!--  });-->
+
+<!--  pr.then( data => {-->
+<!--    return data.website;-->
+<!--  })-->
+<!--    .then( website => {-->
+<!--      console.log(website);-->
+<!--    })-->
+<!--</script>-->
+
+<!--  <script>-->
+<!--    let pr = new Promise((resolve) => {-->
+<!--      let i-->
+<!--      setInterval(() => {-->
+<!--        i++-->
+<!--        console.log(i++)-->
+<!--        resolve(i)-->
+<!--      }, 5000)-->
+<!--    })-->
+<!--  </script>-->
+<!--<script>-->
+<!--  let pr1 = doAfter(4); // один промис-->
+<!--  let pr2 = doAfter(7); // второй промис-->
+
+<!--  pr1.then( () => console.log("pr1 resolved") ); // индивидуально подписываемся на каждый-->
+<!--  pr2.then( () => console.log("pr2 resolved") );-->
+
+<!--  let aggregatedPromise = Promise.all([pr1, pr2]); // получаем общий промис-->
+
+<!--  aggregatedPromise.then( () => console.log("pr1 and pr2 resolved"));-->
+<!--</script>-->
+<script>
+  const getRandomAfter = (number) => {
+    new Promise(() => setTimeout(() => {
+
+    }, number * 1000))
+
+      .then(number =>
+  }
+  getRandomAfter(4).then( number => console.log(`я получил ${number} спустя 4 секунды`))
+</script>
+</body>
+</html>
+

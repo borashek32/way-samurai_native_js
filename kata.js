@@ -128,7 +128,7 @@ console.log("kata");
 // console.log(basicOp('+', 4, 7));
 
 
-// 04.03.23
+// 05.03.23
 // In this kata you will create a function that takes a list
 // of non-negative integers and strings and returns a new list
 // with the strings filtered out.
@@ -150,23 +150,65 @@ console.log("kata");
 // }
 
 // best solution
-function filter_list(l) {
-  return l.filter(function(v) {return typeof v == 'number'});
+// function filter_list(l) {
+//   return l.filter(function(v) {return typeof v == 'number'});
+// }
+//
+// console.log(filter_list([1,2,'a','b']));
+// console.log(filter_list([1,'a','b',0,15]));
+// console.log(filter_list([1,2,'aasf','1','123',123]));
+
+
+// 06.03.23
+// Make a function that will return a greeting statement
+// that uses an input; your program should return,
+// "Hello, <name> how are you doing today?".
+
+// function greet(name){
+//   return `Hello, ${name} how are you doing today?`;
+// }
+
+// console.log(greet('Nat'));
+
+
+// 07.03.23
+// Given an array of integers, return a new array with each value doubled.
+
+// const arr = [1, 2, 3];
+//
+// function maps(x){
+//   return x.map(x => x * 2)
+// }
+//
+// console.log(maps(arr));
+
+
+// <input id="moldova" value="it-incubator"/>
+
+// <script>
+  // const inputElement = document.querySelector('moldova');
+  // inputElement.value = '';
+
+  // {/*/* Что нужно написать вместо XXX, чтобы значение в поле ввода зачищалось?*/}
+  // {/*В качестве ответа укажите строчку целиком.  */*/}
+// </script>
+
+
+// 08.03.23
+// Given a non-negative integer, 3 for example, 
+// return a string with a murmur: "1 sheep...2 sheep...3 sheep...". 
+// Input will always be valid, i.e. no negative integers.
+
+var countSheep = function (num){
+  let arr = []
+  for (let i = 1; i <= num; i++) {
+    let str = `${i} sheep...`
+    arr.push(str)
+  }
+  let arrStr = arr.join('')
+  return arrStr
 }
-
-console.log(filter_list([1,2,'a','b']));
-console.log(filter_list([1,'a','b',0,15]));
-console.log(filter_list([1,2,'aasf','1','123',123]));
-
-
-
-
-
-
-
-
-
-
+console.log(countSheep(2));
 
 
 

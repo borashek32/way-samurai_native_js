@@ -16,46 +16,59 @@
 <!--    myPromise.then(() => console.log("12345"));-->
 <!--  </script>-->
 
-<!--  <script>-->
-<!--    const myPromise = new Promise((resolve) => {-->
-<!--      setTimeout(() => {-->
-<!--        let num = Math.random()-->
-<!--        resolve(num)-->
-<!--      }, 3000)-->
-<!--    })-->
-<!--    myPromise.then((num) => console.log("1 ", num));-->
-<!--    myPromise.then((num) => console.log("2 ", num));-->
-<!--    console.log("finish")-->
-<!--  </script>-->
+  <!-- <script>
+    const myPromise = new Promise((resolve) => {
+      setTimeout(() => {
+        let num = Math.random()
+        resolve(num)
+      }, 3000)
+    })
+    myPromise.then((num) => console.log("1 ", num));
+    myPromise.then((num) => console.log("2 ", num));
+    console.log("finish")
+  </script> -->
 
-<!--  <script>-->
-<!--    const doAfter = (sec) => new Promise((resolve) => {-->
-<!--        setTimeout(() => resolve(sec), sec * 1000)-->
-<!--      })-->
+  <script>
+    const doAfter = (sec) => new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(sec)
+        }, sec * 1000)
+      })
 
-<!--    // doAfter(1).then((sec) => console.log(`я сработал через ${sec} секунд`));-->
+    // doAfter(1).then((sec) => console.log(`я сработал через ${sec} секунд`));
 
-<!--    // doAfter(5).then(() => console.log('я сработал через 5 секунд'));-->
-<!--    // doAfter(3).then(() => console.log('а я сработал через 3 секунд'));-->
-<!--    // doAfter(10).then(() => console.log('я сработал через 10 секунд'));-->
+    // doAfter(5).then(() => console.log('я сработал через 5 секунд'));
+    // doAfter(3).then(() => console.log('а я сработал через 3 секунд'));
+    // doAfter(10).then(() => console.log('я сработал через 10 секунд'));
 
-<!--    let promise3 = doAfter(3)-->
-<!--    setTimeout(() => {-->
-<!--      promise3.then(() => console.log('я сработал через 3 секунд'))-->
-<!--    }, 3000)-->
+    let promise3 = doAfter(3)
+    setTimeout(() => { // 2
+      promise3.then((sec) => console.log(`я сработал через ${sec} секунд`))
+    }, 3 * 1000)
+    let promise4 = doAfter(2)
+    setTimeout(() => { // 1
+      promise4.then((sec) => console.log(`я сработал через ${sec} секунд`))
+    }, 2 * 1000)
+    let promise5 = doAfter(4)
+    setTimeout(() => { // 3
+      promise5.then((sec) => console.log(`я сработал через ${sec} секунд`))
+    }, 4 * 1000)
 
-<!--    // let callback1 = () => console.log('Мой промис зарезолвился')-->
-<!--    // let callback2 = () => console.log('Мой промис тоже зарезолвился следом')-->
+    Promise.all([promise3, promise4, promise5]).then((values) => {
+      console.log(values);
+    });
+    // let callback1 = () => console.log('Мой промис зарезолвился')
+    // let callback2 = () => console.log('Мой промис тоже зарезолвился следом')
 
-<!--    doAfter(3)-->
-<!--      .then(() => {-->
-<!--        console.log('Мой промис зарезолвился')-->
-<!--        return 123-->
-<!--      })-->
-<!--      .then((a) => {-->
-<!--        console.log('Мой промис тоже зарезолвился следом', a)-->
-<!--      })-->
-<!--  </script>-->
+    // doAfter(3)
+    //   .then(() => {
+    //     console.log('Мой промис зарезолвился')
+    //     return Math.random()
+    //   })
+    //   .then((a) => {
+    //     console.log('Мой промис тоже зарезолвился следом', a)
+    //   })
+  </script>
 
 <!--<script>-->
 <!--  let pr = new Promise( (resolve) => {-->
@@ -95,15 +108,43 @@
 
 <!--  aggregatedPromise.then( () => console.log("pr1 and pr2 resolved"));-->
 <!--</script>-->
+<!--<script>-->
+<!--  const getRandomAfter = (number) => {-->
+<!--    new Promise(() => setTimeout(() => {-->
+
+<!--    }, number * 1000))-->
+
+<!--      .then(number =>-->
+<!--  }-->
+<!--  getRandomAfter(4).then( number => console.log(`я получил ${number} спустя 4 секунды`))-->
+<!--</script>-->
+<script src="api.js"></script>
+<script src="axios.js"></script>
 <script>
-  const getRandomAfter = (number) => {
-    new Promise(() => setTimeout(() => {
+  let pr11 = api.getVacanciesCountFromMicrosoft()
+    .then(data => {
+      console.log(data.data.vacancies);
+      return data.data.vacancies
+    });
 
-    }, number * 1000))
+  let pr12 = api.getVacanciesCountFromGoogle()
+    .then(data => {
+      console.log(data.data.vacancies);
+      return data.data.vacancies
+    });
 
-      .then(number =>
-  }
-  getRandomAfter(4).then( number => console.log(`я получил ${number} спустя 4 секунды`))
+  // Promise.all([pr11, pr12])
+  //   .then((values) => {
+  //     let sum = values[0] + values[1];
+  //     return sum
+  //   })
+  //   .then(sum => console.log(sum));
+
+  api.sendStudentsCountToItKamasutra([pr11, pr12])
+    .then(data => {
+      console.log(data);
+    });
+
 </script>
 </body>
 </html>

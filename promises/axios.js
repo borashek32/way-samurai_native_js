@@ -3,22 +3,22 @@ const axios = {
         return new Promise( (resolve) => {
             setTimeout(() => {
                 let responseData = {
-                    text: `${url} loves you` 
+                    text: `${url} loves you`
                 };
                 if (url.indexOf('it-kamasutra') > 0) {
                     responseData = {
                         requestedCount: data.count,
-                        message: "we will prepare students for you"                        
+                        message: "we will prepare students for you"
                     };
                 } else if (url.indexOf('google') > 0) {
                     responseData = {
-                        vacancies: 12 
+                        vacancies: 12,
                     };
                 } else if (url.indexOf('microsoft') > 0) {
                     responseData = {
-                        vacancies: 21 
+                        vacancies: 21
                     };
-                } 
+                }
                 resolve({
                     request: {},
                     status: 200,
@@ -26,7 +26,8 @@ const axios = {
                     config: {},
                     data: responseData
                 });
-            }, randomIntFromInterval(1,5)*1000);
+            });
+            // }, randomIntFromInterval(1,5)*1000);
         });
     },
 

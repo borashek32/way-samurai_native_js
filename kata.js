@@ -186,11 +186,11 @@ console.log("kata");
 // <input id="moldova" value="it-incubator"/>
 
 // <script>
-  // const inputElement = document.querySelector('moldova');
-  // inputElement.value = '';
+// const inputElement = document.querySelector('moldova');
+// inputElement.value = '';
 
-  // {/*/* Что нужно написать вместо XXX, чтобы значение в поле ввода зачищалось?*/}
-  // {/*В качестве ответа укажите строчку целиком.  */*/}
+// {/*/* Что нужно написать вместо XXX, чтобы значение в поле ввода зачищалось?*/}
+// {/*В качестве ответа укажите строчку целиком.  */*/}
 // </script>
 
 
@@ -199,16 +199,76 @@ console.log("kata");
 // return a string with a murmur: "1 sheep...2 sheep...3 sheep...". 
 // Input will always be valid, i.e. no negative integers.
 
-var countSheep = function (num){
-  let arr = []
-  for (let i = 1; i <= num; i++) {
-    let str = `${i} sheep...`
-    arr.push(str)
+// var countSheep = function (num){
+//   let arr = []
+//   for (let i = 1; i <= num; i++) {
+//     let str = `${i} sheep...`
+//     arr.push(str)
+//   }
+//   let arrStr = arr.join('')
+//   return arrStr
+// }
+// console.log(countSheep(2));
+
+// -1  =>  false
+//  0  =>  true
+//  3  =>  false
+//  4  =>  true
+// 25  =>  true
+// 26  =>  false
+
+// function mathsqrt(n) {
+//   if (Number.isInteger(n % Math.sqrt(n)) || n === 0) {
+//     return true
+//   }
+//   return false
+// }
+
+// console.log(mathsqrt(3));
+
+
+// 09.03.23
+// a = "xyaabbbccccdefww"
+// b = "xxxxyyyyabklmopq"
+// longest(a, b) -> "abcdefklmopqwxy"
+
+// a = "abcdefghijklmnopqrstuvwxyz"
+// longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+
+function longest(s1, s2) {
+  const arr = s1.concat(s2).split('');
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 1]) {
+      arr.delete(arr[i]);
+    }
   }
-  let arrStr = arr.join('')
-  return arrStr
+  return arr;
 }
-console.log(countSheep(2));
+
+// longest("dfchdfchg", "dsfchdgcfgds");
+
+const s1 = "xyaabbbccccdefww";
+const s2 = "xxxxyyyyabklmopq";
+
+function longest(s1, s2) {
+  let arr = s1.concat(s2).split('');
+  return Array.from(new Set(arr)).sort().join('');
+}
+
+console.log(longest(s1, s2));
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

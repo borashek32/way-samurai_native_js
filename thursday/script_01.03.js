@@ -184,7 +184,13 @@ console.log(dealer.models);
 //
 // console.log(car.showBrand.call(car));
 
-
+// function-constructor
+function CarCreator(brand) {
+  this.brand = brand;
+}
+// this указывает на конкретный бренд у каждой машины
+const car1 = new CarCreator("BMW");
+const car2 = new CarCreator("Opel");
 
 
 

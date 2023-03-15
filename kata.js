@@ -235,40 +235,62 @@ console.log("kata");
 // a = "abcdefghijklmnopqrstuvwxyz"
 // longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 
-function longest(s1, s2) {
-  const arr = s1.concat(s2).split('');
-  console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === arr[i + 1]) {
-      arr.delete(arr[i]);
-    }
-  }
-  return arr;
-}
+// function longest(s1, s2) {
+//   const arr = s1.concat(s2).split('');
+//   console.log(arr);
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === arr[i + 1]) {
+//       arr.delete(arr[i]);
+//     }
+//   }
+//   return arr;
+// }
 
 // longest("dfchdfchg", "dsfchdgcfgds");
 
-const s1 = "xyaabbbccccdefww";
-const s2 = "xxxxyyyyabklmopq";
+// const s1 = "xyaabbbccccdefww";
+// const s2 = "xxxxyyyyabklmopq";
+//
+// function longest(s1, s2) {
+//   let arr = s1.concat(s2).split('');
+//   return Array.from(new Set(arr)).sort().join('');
+// }
+//
+// console.log(longest(s1, s2));
 
-function longest(s1, s2) {
-  let arr = s1.concat(s2).split('');
-  return Array.from(new Set(arr)).sort().join('');
+// 10.03.23
+// const check = (a, x) => a.some(el => el === x);
+//
+// console.log(check([101, 45, 75, 105, 99, 107], 107));
+
+// 15.03.23 - katas
+// "1234"   -->  true
+// "12345"  -->  false
+// "a234"   -->  false
+
+// function validatePIN (pin) {
+//   if (Number.isInteger(+pin) && (pin.length === 4 || pin.length === 6 || !pin.length === 3) && !pin.includes(".") && !pin.includes('-')) {
+//     return true;
+//   }
+//   return false
+// }
+
+// console.log(validatePIN('123'));
+// console.log(validatePIN('12345'));
+// console.log(validatePIN('a234'));
+
+// Write function bmi that calculates body mass index (bmi = weight / height2).
+// if bmi <= 18.5 return "Underweight"
+// if bmi <= 25.0 return "Normal"
+// if bmi <= 30.0 return "Overweight"
+// if bmi > 30 return "Obese"
+
+function bmi(weight, height) {
+  if (weight/Math.pow(height, 2) <= 18.5) return "Underweight"
+  if (weight/Math.pow(height, 2) <= 25.0) return "Normal"
+  if (weight/Math.pow(height, 2) <= 30.0) return "Overweight"
+  if (weight/Math.pow(height, 2) > 30) return "Obese"
 }
-
-console.log(longest(s1, s2));
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
